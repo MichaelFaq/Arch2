@@ -1,0 +1,41 @@
+-foptimize-strlen
+Optimize various standard C string functions (e.g. strlen, strchr or strcpy) and their _FORTIFY_SOURCE counterparts into faster alternatives.
+Enabled at levels -O2, -O3. 
+
+-finline-small-functions
+Integrate functions into their callers when their body is smaller than expected function call code (so overall size of program gets smaller). The compiler heuristically decides which functions are simple enough to be worth integrating in this way. This inlining applies to all functions, even those not declared inline.
+Enabled at level -O2. 
+
+-fipa-sra
+Perform interprocedural scalar replacement of aggregates, removal of unused parameters and replacement of parameters passed by reference by parameters passed by value.
+Enabled at levels -O2, -O3 and -Os. 
+
+-fsplit-wide-types
+When using a type that occupies multiple registers, such as long long on a 32-bit system, split the registers apart and allocate them independently. This normally generates better code for those types, but may make debugging more difficult.
+Enabled at levels -O, -O2, -O3, -Os. 
+
+-fcse-skip-blocks
+This is similar to -fcse-follow-jumps, but causes CSE to follow jumps that conditionally skip over blocks. When CSE encounters a simple if statement with no else clause, -fcse-skip-blocks causes CSE to follow the jump around the body of the if.
+Enabled at levels -O2, -O3, -Os. 
+
+-fgcse
+Perform a global common subexpression elimination pass. This pass also performs global constant and copy propagation.
+Note: When compiling a program using computed gotos, a GCC extension, you may get better run-time performance if you disable the global common subexpression elimination pass by adding -fno-gcse to the command line.
+
+Enabled at levels -O2, -O3, -Os. 
+
+-fif-conversion2
+Use conditional execution (where available) to transform conditional jumps into branch-less equivalents.
+Enabled at levels -O, -O2, -O3, -Os. 
+
+-fexpensive-optimizations
+Perform a number of minor optimizations that are relatively expensive.
+Enabled at levels -O2, -O3, -Os. 
+
+-fcaller-saves
+Enable allocation of values to registers that are clobbered by function calls, by emitting extra instructions to save and restore the registers around such calls. Such allocation is done only when it seems to result in better code.
+This option is always enabled by default on certain machines, usually those which have no call-preserved registers to use instead.
+
+Enabled at levels -O2, -O3, -Os. 
+
+-falign-loops
